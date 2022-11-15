@@ -1,4 +1,4 @@
-import { Checkbox, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import { Checkbox, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
 import React, {useState} from 'react';
 
 export const ReplayPage = (props) => {
@@ -17,11 +17,12 @@ export const ReplayPage = (props) => {
 
     const [queryType, setQueryType] = useState(QueryTypes.PLAYER);
     const [isTwitchReplay, setIsTwitchReplay] = useState(false);
+    const [date, setDate] = useState<string>();
 
     return (
         <div>
             <div>
-                Replay Page: {queryType} {isTwitchReplay ? "Twitch Replay" : "Not Twitch Replay" }
+                Replay Page: {queryType} {isTwitchReplay ? "Twitch Replay" : "Not Twitch Replay" } {date}
             </div>
             <div>
                 <Select
@@ -45,6 +46,19 @@ export const ReplayPage = (props) => {
                         setIsTwitchReplay(event.target.checked);
                     }} 
                 /> Is Twitch Replay
+            </div>
+            <div>
+                <TextField
+                    id="date"
+                    type="date"
+                    sx={{ width: 220 }}
+                    InputLabelProps={{
+                    shrink: true,
+                    }}
+                    onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                        setDate(event.target.value);
+                    }}
+                />
             </div>
         </div>
     )
