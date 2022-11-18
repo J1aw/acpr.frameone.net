@@ -1,23 +1,52 @@
-import { Checkbox, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
+import { Button, Checkbox, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
 import React, {useState} from 'react';
+import axios from 'axios';
+import { QueryTypes } from './Util/QueryConfig.ts';
+import { QueryDetailsInput } from './QueryDetailsInput/QueryDetailsInput.tsx';
+import { ItemsList } from './ItemsList/ItemsList.tsx';
 
 export const ReplayPage = (props) => {
-    const QueryTypes = {
-        PLAYER: 'Player',
-        PLAYER_CHARACTER: 'PlayerCharacter',
-        PLAYER_SID_CHARACTER: 'PlayerSIDCharacter',
-        PLAYER_CHARACTER_VS_CHARACTER: 'PlayerCharacterVsCharacter',
-        PLAYER_SID_CHARACTER_VS_CHARACTER: 'PlayerSIDCharacterVsCharacter',
-        PLAYER_VS_CHARACTER: 'PlayerVsCharacter',
-        PLAYER_SID_VS_CHARACTER: 'PlayerSIDVsCharacter',
-        PLAYER_VS_PLAYER: 'PlayerVsPlayer',
-        PLAYER_CHARACTER_VS_PLAYER_CHARACTER: 'PlayerCharacterVsPlayerCharacter',
-        PLAYER_SID_CHARACTER_VS_PLAYER_SID_CHARACTER: 'PlayerSIDCharacterVsPlayerSIDCharacter',
-    }
 
-    const [queryType, setQueryType] = useState(QueryTypes.PLAYER);
+
+    // Pre-request state
+    const [queryType, setQueryType] = useState('PLAYER');
     const [isTwitchReplay, setIsTwitchReplay] = useState(false);
     const [date, setDate] = useState<string>();
+    const [queryParams, setQueryParams] = useState({});
+
+    // Request-related state
+    const [isLoading, setIsLoading] = useState(false);
+    const [data, setData] = useState();
+
+    const onSubmit = async () => {
+        if (Object.keys(queryParams).length === 0) {
+            return;
+        }
+
+        const url = 'https://api.frameone.net/query-acpr';
+        const routeKey = QueryTypes[queryType].label;
+        const params: any = {...queryParams, routeKey};
+        params.Table = isTwitchReplay ? 'spectator-replays' : 'replays';
+        if (date && date.length > 0) {
+            params.Date = date;
+        }
+        const result = await axios(
+            url, {
+                params
+            }
+        );
+    
+        setData(result.data);
+        console.log(result.data);
+    }
+
+    const renderData = () => {
+        if (data) {
+            return (
+                <ItemsList data={data} />
+            )
+        }
+    }
 
     return (
         <div>
@@ -28,13 +57,14 @@ export const ReplayPage = (props) => {
                 <Select
                     label="Query Type"
                     onChange={(event: SelectChangeEvent) => {
+                        setQueryParams({});
                         setQueryType(event.target.value as string);
                     }}
                     value={queryType}
                     >
-                    {Object.values(QueryTypes).map(queryType => (
+                    {Object.keys(QueryTypes).map(queryType => (
                         <MenuItem value={queryType}>
-                            {queryType}
+                            {QueryTypes[queryType].label}
                         </MenuItem>
                     ))}
                 </Select>
@@ -59,6 +89,17 @@ export const ReplayPage = (props) => {
                         setDate(event.target.value);
                     }}
                 />
+            </div>
+            <div>
+                <QueryDetailsInput config={QueryTypes[queryType].config} queryType={queryType} queryParams={{...queryParams}} setQueryParams={setQueryParams} />
+            </div>
+            <div>
+                <Button onClick={onSubmit}>
+                    Search
+                </Button>
+            </div>
+            <div>
+                {renderData()}
             </div>
         </div>
     )
