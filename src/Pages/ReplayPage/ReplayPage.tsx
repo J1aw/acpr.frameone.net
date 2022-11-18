@@ -1,4 +1,4 @@
-import { Button, Checkbox, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
+import { Button, Checkbox, CircularProgress, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
 import React, {useState} from 'react';
 import axios from 'axios';
 import { QueryTypes } from './Util/QueryConfig.ts';
@@ -6,17 +6,19 @@ import { QueryDetailsInput } from './QueryDetailsInput/QueryDetailsInput.tsx';
 import { ItemsList } from './ItemsList/ItemsList.tsx';
 
 export const ReplayPage = (props) => {
-
-
     // Pre-request state
     const [queryType, setQueryType] = useState('PLAYER');
-    const [isTwitchReplay, setIsTwitchReplay] = useState(false);
+    const [isTwitchReplay, setIsTwitchReplay] = useState(true);
     const [date, setDate] = useState<string>();
     const [queryParams, setQueryParams] = useState({});
 
     // Request-related state
     const [isLoading, setIsLoading] = useState(false);
     const [data, setData] = useState();
+
+    const onClear = () => {
+        setData(undefined);
+    }
 
     const onSubmit = async () => {
         if (Object.keys(queryParams).length === 0) {
@@ -30,14 +32,19 @@ export const ReplayPage = (props) => {
         if (date && date.length > 0) {
             params.Date = date;
         }
+
+        setIsLoading(true);
+
         const result = await axios(
             url, {
                 params
             }
         );
-    
+
+        setIsLoading(false);
+
+        result.data.bucket = isTwitchReplay ? 'ggxxacpr-replays-twitch' : 'ggxxacpr-replays';
         setData(result.data);
-        console.log(result.data);
     }
 
     const renderData = () => {
@@ -51,9 +58,6 @@ export const ReplayPage = (props) => {
     return (
         <div>
             <div>
-                Replay Page: {queryType} {isTwitchReplay ? "Twitch Replay" : "Not Twitch Replay" } {date}
-            </div>
-            <div>
                 <Select
                     label="Query Type"
                     onChange={(event: SelectChangeEvent) => {
@@ -63,7 +67,7 @@ export const ReplayPage = (props) => {
                     value={queryType}
                     >
                     {Object.keys(QueryTypes).map(queryType => (
-                        <MenuItem value={queryType}>
+                        <MenuItem key={queryType} value={queryType}>
                             {QueryTypes[queryType].label}
                         </MenuItem>
                     ))}
@@ -79,7 +83,7 @@ export const ReplayPage = (props) => {
             </div>
             <div>
                 <TextField
-                    id="date"
+                    key="date"
                     type="date"
                     sx={{ width: 220 }}
                     InputLabelProps={{
@@ -97,6 +101,12 @@ export const ReplayPage = (props) => {
                 <Button onClick={onSubmit}>
                     Search
                 </Button>
+                <Button onClick={onClear}>
+                    Clear
+                </Button>
+            </div>
+            <div style={{height: '18px'}}>
+                {isLoading && <CircularProgress />}
             </div>
             <div>
                 {renderData()}
