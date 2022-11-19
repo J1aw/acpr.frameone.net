@@ -1,13 +1,29 @@
-import { Avatar, Link, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Avatar, Link, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 import React, {useEffect} from 'react';
 import { CharacterList } from '../Util/CharacterList.ts';
 
 export const ItemsList = (props) => {
     const {data} = props;
+
+    if (data.Items.length === 0) {
+        return (
+            <div style={{marginTop: '26px'}}>
+                No results.
+            </div>
+        );
+    }
+    
     return (
-        <div>
+        <div style={{paddingLeft: '10%', paddingRight: '10%'}}>
             <Table>
+                <colgroup>
+                    <col style={{width:'20%'}}/>
+                    <col style={{width:'10%'}}/>
+                    <col style={{width:'20%'}}/>
+                    <col style={{width:'10%'}}/>
+                    <col style={{width:'10%'}}/>
+                </colgroup>
                 <TableHead>
                     <TableRow key="headerRow">
                         <TableCell>
@@ -30,21 +46,23 @@ export const ItemsList = (props) => {
                 <TableBody>
                     {data.Items.map(e => {
                         const vodUrl = `https://${data.bucket}.s3.amazonaws.com/${e.gameID}.ggr`;
-                        const char = CharacterList[e.p2Character];
+                        const p1Char = CharacterList[e.p1Character];
+                        const p2Char = CharacterList[e.p2Character];
                         return (
                             <TableRow key={e.gameID}>
                                 <TableCell>
                                     {e.p1Name}
                                 </TableCell>
                                 <TableCell>
-                                    {CharacterList[e.p1Character].label}
+                                    <Avatar src={p1Char.imgUrl} sx={{ width: 60, height: 60 }} />
+                                    {p1Char.label}
                                 </TableCell>
                                 <TableCell>
                                     {e.p2Name}
                                 </TableCell>
                                 <TableCell>
-                                    <Avatar src={char.imgUrl} sx={{ width: 60, height: 60 }} />
-                                    {char.label}
+                                    <Avatar src={p2Char.imgUrl} sx={{ width: 60, height: 60 }} />
+                                    {p2Char.label}
                                 </TableCell>
                                 <TableCell>
                                     <Link href={vodUrl}>

@@ -105,7 +105,7 @@ export const ReplayPage = (props) => {
                     Clear
                 </Button>
             </div>
-            <div style={{height: '18px'}}>
+            <div style={{height: '28px', marginBottom: '20px'}}>
                 {isLoading && <CircularProgress />}
             </div>
             <div>

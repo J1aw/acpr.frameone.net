@@ -29,21 +29,21 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <div style={{height: '70px'}}>
+    <div className='app-container'>
+      <div className='app-header-container'>
         <AppBar>
-          <div style={{display: 'flex', flexDirection: 'row'}}>
-            <div style={{width: '30%'}}>
+          <div className='app-bar-content'>
+            <div className='app-bar-logo'>
               <Typography>
                 GG Replay App
               </Typography>
             </div>
-            <div style={{width: '10%'}}>
+            <div className='app-bar-button'>
               <MenuItem key={Routes.REPLAY} onClick={() => {setRoute(Routes.REPLAY)}}>
                 Replay
               </MenuItem>
             </div>
-            <div style={{width: '10%'}}>
+            <div className='app-bar-button'>
               <MenuItem key={Routes.UPLOAD} onClick={() => {setRoute(Routes.UPLOAD)}}>
                 Upload
               </MenuItem>
