@@ -1,3 +1,4 @@
+import '../../App.css';
 import { Button, Checkbox, CircularProgress, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
 import React, {useState} from 'react';
 import axios from 'axios';
@@ -57,7 +58,10 @@ export const ReplayPage = (props) => {
 
     return (
         <div>
-            <div>
+            <div className='section-label'>
+                Select a query type:
+            </div>
+            <div className='input-container'>
                 <Select
                     label="Query Type"
                     onChange={(event: SelectChangeEvent) => {
@@ -74,6 +78,12 @@ export const ReplayPage = (props) => {
                 </Select>
             </div>
             <div>
+                <QueryDetailsInput config={QueryTypes[queryType].config} queryType={queryType} queryParams={{...queryParams}} setQueryParams={setQueryParams} />
+            </div>
+            <div className='section-label'>
+                Specify replay source:
+            </div>
+            <div className='input-container'>
                 <Checkbox 
                     checked={isTwitchReplay} 
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -81,11 +91,14 @@ export const ReplayPage = (props) => {
                     }} 
                 /> Is Twitch Replay
             </div>
-            <div>
+            <div className='section-label'>
+                Set date for search:
+            </div>
+            <div className='input-container'>
                 <TextField
                     key="date"
                     type="date"
-                    sx={{ width: 220 }}
+                    className="input-field"
                     InputLabelProps={{
                     shrink: true,
                     }}
@@ -94,10 +107,7 @@ export const ReplayPage = (props) => {
                     }}
                 />
             </div>
-            <div>
-                <QueryDetailsInput config={QueryTypes[queryType].config} queryType={queryType} queryParams={{...queryParams}} setQueryParams={setQueryParams} />
-            </div>
-            <div>
+            <div className='search-button-container'>
                 <Button onClick={onSubmit}>
                     Search
                 </Button>
@@ -105,7 +115,7 @@ export const ReplayPage = (props) => {
                     Clear
                 </Button>
             </div>
-            <div style={{height: '28px', marginBottom: '20px'}}>
+            <div className='spinner-container'>
                 {isLoading && <CircularProgress />}
             </div>
             <div>

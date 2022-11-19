@@ -1,15 +1,23 @@
+/*
+  App-level styles
+*/
+
 .app-container {
   text-align: center;
+  background-color: #EAEAEA;
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .app-header-container {
-  height: 70px;
+  height: 56px;
 }
 
 .app-bar-content {
   display: flex;
   flex-direction: row;
   align-items: center;
+  height: 100%;
 }
 
 .app-bar-logo {
@@ -18,4 +26,43 @@
 
 .app-bar-button {
   width: 10%;
+  height: 100%;
+}
+
+.app-page-container {
+  margin-left: 10%;
+  margin-right: 10%;
+  padding-top: 20px;
+  background-color: white;
+  height: 100%;
+  overflow-y: auto;
+}
+
+/*
+  Page-level styles
+*/
+
+.section-label {
+  margin-bottom: 6px;
+}
+
+.input-container {
+  padding-bottom: 10px;;
+  margin-left: 30%;
+  margin-right: 30%;
+  margin-bottom: 22px;
+  border-bottom: 1px solid #EAEAEA;
+}
+
+.input-field {
+  width: 60%;
+}
+
+.search-button-container {
+  margin-bottom: 16px;
+}
+
+.spinner-container {
+  height: 28px;
+  margin-bottom: 36px;
 }

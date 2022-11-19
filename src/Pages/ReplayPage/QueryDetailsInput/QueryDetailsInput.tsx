@@ -1,3 +1,4 @@
+import '../../../App.css';
 import { MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
 import React, {useEffect} from 'react';
 
@@ -26,8 +27,14 @@ export const QueryDetailsInput = (props) => {
                 };
 
                 return (
-                    <div key={e.field}>
-                        <TextField key={queryType + e.field} label={e.label} value={queryParams[e.field] || ''} onChange={textOnChange} />
+                    <div key={e.field} className='input-container'>
+                        <TextField
+                            key={queryType + e.field}
+                            label={e.label}
+                            value={queryParams[e.field] || ''}
+                            onChange={textOnChange}
+                            className='input-field'
+                        />
                     </div>
                 );
             }
@@ -50,8 +57,14 @@ export const QueryDetailsInput = (props) => {
                 };
 
                 return (
-                    <div key={e.field}>
-                        <Select key={e.field} label={e.label} value={queryParams[e.field] || e.options[0].value} onChange={selectOnChange}>
+                    <div key={e.field} className='input-container'>
+                        <Select
+                            key={e.field}
+                            label={e.label}
+                            value={queryParams[e.field] || e.options[0].value}
+                            onChange={selectOnChange}
+                            className='input-field'
+                        >
                             {selectOptions}
                         </Select>
                     </div>

@@ -31,7 +31,7 @@ function App() {
   return (
     <div className='app-container'>
       <div className='app-header-container'>
-        <AppBar>
+        <AppBar className='app-header-container'>
           <div className='app-bar-content'>
             <div className='app-bar-logo'>
               <Typography>
@@ -39,19 +39,19 @@ function App() {
               </Typography>
             </div>
             <div className='app-bar-button'>
-              <MenuItem key={Routes.REPLAY} onClick={() => {setRoute(Routes.REPLAY)}}>
+              <MenuItem style={{height: '100%'}} key={Routes.REPLAY} onClick={() => {setRoute(Routes.REPLAY)}}>
                 Replay
               </MenuItem>
             </div>
             <div className='app-bar-button'>
-              <MenuItem key={Routes.UPLOAD} onClick={() => {setRoute(Routes.UPLOAD)}}>
+              <MenuItem style={{height: '100%'}} key={Routes.UPLOAD} onClick={() => {setRoute(Routes.UPLOAD)}}>
                 Upload
               </MenuItem>
             </div>
           </div>
         </AppBar>
       </div>
-      <div>
+      <div className='app-page-container'>
         {renderPage()}
       </div>
     </div>
