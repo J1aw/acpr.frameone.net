@@ -7,126 +7,126 @@ export const CharacterList = [
     {
         value: 'SO',
         label: 'Sol',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'SO.png'
     }, 
     {
         value: 'KY',
         label: 'Ky',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'KY.png'
     }, 
     {
         value: 'MA',
         label: 'May',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'MA.png'
     }, 
     {
         value: 'MI',
         label: 'Millia',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'MI.png'
     }, 
     {
         value: 'AX',
-        label: 'Axl Low',
-        imgUrl: 'example_character_avatar.png'
+        label: 'Axl',
+        imgUrl: 'AX.png'
     }, 
     {
         value: 'PO',
         label: 'Potemkin',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'PO.png'
     }, 
     {
         value: 'CH',
         label: 'Chipp',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'CH.png'
     }, 
     {
         value: 'ED',
         label: 'Eddie',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'ED.png'
     }, 
     {
         value: 'BA',
         label: 'Baiken',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'BA.png'
     }, 
     {
         value: 'FA',
         label: 'Faust',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'FA.png'
     }, 
     {
         value: 'TE',
         label: 'Testament',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'TE.png'
     }, 
     {
         value: 'JA',
         label: 'Jam',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'JA.png'
     }, 
     {
         value: 'AN',
         label: 'Anji',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'AN.png'
     }, 
     {
         value: 'JO',
         label: 'Johnny',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'JO.png'
     }, 
     {
         value: 'VE',
         label: 'Venom',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'VE.png'
     }, 
     {
         value: 'DI',
         label: 'Dizzy',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'DI.png'
     }, 
     {
         value: 'SL',
         label: 'Slayer',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'SL.png'
     }, 
     {
         value: 'IN',
         label: 'I-No',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'IN.png'
     }, 
     {
         value: 'ZA',
         label: 'Zappa',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'ZA.png'
     }, 
     {
         value: 'BR',
         label: 'Bridget',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'BR.png'
     }, 
     {
         value: 'RO',
         label: 'Robo-Ky',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'RO.png'
     }, 
     {
         value: 'AB',
-        label: 'A.B.A.',
-        imgUrl: 'example_character_avatar.png'
+        label: 'A.B.A',
+        imgUrl: 'AB.png'
     }, 
     {
         value: 'OS',
         label: 'Order-Sol',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'OS.png'
     }, 
     {
         value: 'KL',
         label: 'Kliff',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'KL.png'
     }, 
     {
         value: 'JU',
         label: 'Justice',
-        imgUrl: 'example_character_avatar.png'
+        imgUrl: 'JU.png'
     }
 ];
