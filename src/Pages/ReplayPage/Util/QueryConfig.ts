@@ -44,7 +44,7 @@ export const QueryTypes = {
         ]
     },
     PLAYER_CHARACTER: {
-        label: 'PlayerCharacter',
+        label: 'Player Character',
         route: 'PlayerCharacter',
         config: [
             QueryConfig.p1Name,
@@ -52,7 +52,7 @@ export const QueryTypes = {
         ]
     },
     PLAYER_SID_CHARACTER: {
-        label: 'PlayerSIDCharacter',
+        label: 'PlayerSteamID Character',
         route: 'PlayerSIDCharacter',
         config: [
             QueryConfig.p1SteamID,
@@ -60,7 +60,7 @@ export const QueryTypes = {
         ]
     },
     PLAYER_CHARACTER_VS_CHARACTER: {
-        label: 'PlayerCharacterVsCharacter',
+        label: 'Player Character Vs Character',
         route: 'PlayerCharacterVsCharacter',
         config: [
             QueryConfig.p1Name,
@@ -69,7 +69,7 @@ export const QueryTypes = {
         ]
     },
     PLAYER_SID_CHARACTER_VS_CHARACTER: {
-        label: 'PlayerSIDCharacterVsCharacter',
+        label: 'PlayerSteamID Character Vs Character',
         route: 'PlayerSIDCharacterVsCharacter',
         config: [
             QueryConfig.p1SteamID,
@@ -78,7 +78,7 @@ export const QueryTypes = {
         ]
     },
     PLAYER_VS_CHARACTER: {
-        label: 'PlayerVsCharacter',
+        label: 'Player Vs Character',
         route: 'PlayerVsCharacter',
         config: [
             QueryConfig.p1Name,
@@ -86,7 +86,7 @@ export const QueryTypes = {
         ]
     },
     PLAYER_SID_VS_CHARACTER: {
-        label: 'PlayerSIDVsCharacter',
+        label: 'PlayerSteamID Vs Character',
         route: 'PlayerSIDVsCharacter',
         config: [
             QueryConfig.p1SteamID,
@@ -94,7 +94,7 @@ export const QueryTypes = {
         ]
     },
     PLAYER_VS_PLAYER: {
-        label: 'PlayerVsPlayer',
+        label: 'Player Vs Player',
         route: 'PlayerVsPlayer',
         config: [
             QueryConfig.p1Name,
@@ -102,7 +102,7 @@ export const QueryTypes = {
         ]
     },
     PLAYER_CHARACTER_VS_PLAYER_CHARACTER: {
-        label: 'PlayerCharacterVsPlayerCharacter',
+        label: 'Player Character Vs Player Character',
         route: 'PlayerCharacterVsPlayerCharacter',
         config: [
             QueryConfig.p1Name,
@@ -112,7 +112,7 @@ export const QueryTypes = {
         ]
     },
     PLAYER_SID_CHARACTER_VS_PLAYER_SID_CHARACTER: {
-        label: 'PlayerSIDCharacterVsPlayerSIDCharactere',
+        label: 'PlayerSteamID Character Vs PlayerSteamID Character',
         route: 'PlayerSIDCharacterVsPlayerSIDCharacter',
         config: [
             QueryConfig.p1SteamID,
