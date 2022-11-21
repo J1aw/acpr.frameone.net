@@ -35,7 +35,7 @@ function App() {
           <div className='app-bar-content'>
             <div className='app-bar-logo'>
               <Typography>
-                GG Replay App
+                ACPR Replays
               </Typography>
             </div>
             <div className='app-bar-button'>
