@@ -80,19 +80,16 @@ export const ReplayPage = (props) => {
             <div>
                 <QueryDetailsInput config={QueryTypes[queryType].config} queryType={queryType} queryParams={{...queryParams}} setQueryParams={setQueryParams} />
             </div>
-            <div className='section-label'>
-                Specify replay source:
-            </div>
             <div className='container'>
                 <Checkbox 
                     checked={isTwitchReplay} 
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                         setIsTwitchReplay(event.target.checked);
                     }} 
-                /> Is Twitch Replay
+                /> Seen on twitch.tv/ggxxacpr
             </div>
             <div className='section-label'>
-                Set date for search:
+                Set date for search (Optional):
             </div>
             <div className='container'>
                 <TextField
