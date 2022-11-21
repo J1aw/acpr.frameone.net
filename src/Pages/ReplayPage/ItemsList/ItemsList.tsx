@@ -54,15 +54,27 @@ export const ItemsList = (props) => {
                                     {e.p1Name}
                                 </TableCell>
                                 <TableCell>
-                                    <Avatar src={p1Char.imgUrl} sx={{ width: 60, height: 60 }} />
-                                    {p1Char.label}
+                                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                                        <div style={{width: '60px'}}>
+                                            <Avatar src={p1Char.imgUrl} sx={{ width: 60, height: 60 }} />
+                                        </div>
+                                        <div style={{width: '60px', textAlign: 'center'}}>
+                                            {p1Char.label}
+                                        </div>
+                                    </div>
                                 </TableCell>
                                 <TableCell>
                                     {e.p2Name}
                                 </TableCell>
                                 <TableCell>
-                                    <Avatar src={p2Char.imgUrl} sx={{ width: 60, height: 60 }} />
-                                    {p2Char.label}
+                                    <div style={{display: 'flex', flexDirection: 'column'}}>
+                                        <div style={{width: '60px'}}>
+                                            <Avatar src={p2Char.imgUrl} sx={{ width: 60, height: 60 }} />
+                                        </div>
+                                        <div style={{width: '60px', textAlign: 'center'}}>
+                                            {p2Char.label}
+                                        </div>
+                                    </div>
                                 </TableCell>
                                 <TableCell>
                                     <Link href={vodUrl}>

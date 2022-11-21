@@ -27,20 +27,23 @@ export const QueryDetailsInput = (props) => {
                 };
 
                 return (
-                    <div key={e.field} className='input-container'>
-                        <TextField
-                            key={queryType + e.field}
-                            label={e.label}
-                            value={queryParams[e.field] || ''}
-                            onChange={textOnChange}
-                            className='input-field'
-                        />
-                    </div>
+                    <>
+                        <div className='section-label'>
+                            {e.field}:
+                        </div>
+                        <div key={e.field} className='container'>
+                            <TextField
+                                key={queryType + e.field}
+                                value={queryParams[e.field] || ''}
+                                onChange={textOnChange}
+                                className='input-field'
+                            />
+                        </div>
+                    </>
                 );
             }
 
             if (e.type === 'select') {
-                console.log(queryParams, e.field);
                 const getIndexForMatchupQuery = (options, option) => {
                     return options.findIndex(op => op.value === option.value);
                 }
@@ -50,24 +53,28 @@ export const QueryDetailsInput = (props) => {
                 ));
     
                 const selectOnChange = (event: SelectChangeEvent) => {
-                    console.log('we on change now');
                     const newQueryParams = {...queryParams};
                     newQueryParams[e.field] = event.target.value
                     setQueryParams(newQueryParams);
                 };
 
                 return (
-                    <div key={e.field} className='input-container'>
-                        <Select
-                            key={e.field}
-                            label={e.label}
-                            value={queryParams[e.field] || e.options[0].value}
-                            onChange={selectOnChange}
-                            className='input-field'
-                        >
-                            {selectOptions}
-                        </Select>
-                    </div>
+                    <>
+                        <div className='section-label'>
+                            {e.field}:
+                        </div>
+                        <div key={e.field} className='container'>
+                            <Select
+                                key={e.field}
+                                label={e.label}
+                                value={queryParams[e.field] || e.options[0].value}
+                                onChange={selectOnChange}
+                                className='input-field'
+                            >
+                                {selectOptions}
+                            </Select>
+                        </div>
+                    </>
                 );
             }
         });

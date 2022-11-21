@@ -61,7 +61,7 @@ export const ReplayPage = (props) => {
             <div className='section-label'>
                 Select a query type:
             </div>
-            <div className='input-container'>
+            <div className='container'>
                 <Select
                     label="Query Type"
                     onChange={(event: SelectChangeEvent) => {
@@ -83,7 +83,7 @@ export const ReplayPage = (props) => {
             <div className='section-label'>
                 Specify replay source:
             </div>
-            <div className='input-container'>
+            <div className='container'>
                 <Checkbox 
                     checked={isTwitchReplay} 
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,7 +94,7 @@ export const ReplayPage = (props) => {
             <div className='section-label'>
                 Set date for search:
             </div>
-            <div className='input-container'>
+            <div className='container'>
                 <TextField
                     key="date"
                     type="date"
@@ -115,7 +115,7 @@ export const ReplayPage = (props) => {
                     Clear
                 </Button>
             </div>
-            <div className='spinner-container'>
+            <div className='container spinner-container'>
                 {isLoading && <CircularProgress />}
             </div>
             <div>
