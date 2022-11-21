@@ -24,6 +24,10 @@ export const ItemsList = (props) => {
                     <col style={{width:'10%'}}/>
                     <col style={{width:'10%'}}/>
                 </colgroup>
+                {
+                    // This is where columns are defined,
+                    // For every column here, in the data section put a matching cell in each row
+                }
                 <TableHead>
                     <TableRow key="headerRow">
                         <TableCell>
@@ -39,15 +43,19 @@ export const ItemsList = (props) => {
                             Character
                         </TableCell>
                         <TableCell>
-                            VOD
+                            Replay
+                        </TableCell>
+                        <TableCell>
+                            Date
                         </TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {data.Items.map(e => {
-                        const vodUrl = `https://${data.bucket}.s3.amazonaws.com/${e.gameID}.ggr`;
+                        const replayUrl = `https://${data.bucket}.s3.amazonaws.com/${e.gameID}.ggr`;
                         const p1Char = CharacterList[e.p1Character];
                         const p2Char = CharacterList[e.p2Character];
+                        console.log(e);
                         return (
                             <TableRow key={e.gameID}>
                                 <TableCell>
@@ -77,9 +85,12 @@ export const ItemsList = (props) => {
                                     </div>
                                 </TableCell>
                                 <TableCell>
-                                    <Link href={vodUrl}>
+                                    <Link href={replayUrl}>
                                         <DownloadIcon  sx={{ width: 40, height: 40, paddingRight: '30px', paddingLeft: '30px', color: '#222' }} />
                                     </Link>
+                                </TableCell>
+                                <TableCell>
+                                    {e.date.split('T')[0]}
                                 </TableCell>
                             </TableRow>
                         );

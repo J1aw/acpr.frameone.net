@@ -73,14 +73,30 @@ export const UploadPage = (props) => {
 
     }
 
+    // To do:
+    // Add a date column
+    // Add size validation on upload
+
     const onFileSelect = e => {
         const file = e.target.files[0];
+        console.log(file);
         if (file.name.split('.').pop() !== 'zip') {
             setStatusMessage({
                 isError: true,
                 message: 'Improper file format. Upload a .zip file'
             });
-        } else {
+        } else if (file.size < 1000) {
+            setStatusMessage({
+                isError: true,
+                message: 'Improper file size. Minimum size is 1000 bytes'
+            });
+        } else if (file.size > 100000000) {
+            setStatusMessage({
+                isError: true,
+                message: 'Improper file size. Maximum size is 100000000 bytes'
+            });
+        }
+        else {
             setStatusMessage({});
         }
         setFile(file);
