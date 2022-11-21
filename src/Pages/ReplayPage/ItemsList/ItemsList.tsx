@@ -1,6 +1,6 @@
-import { Avatar, Link, Paper, Table, TableBody, TableCell, TableContainer, TableFooter, TableHead, TablePagination, TableRow } from '@mui/material';
+import { Avatar, Link, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
-import React, {useEffect} from 'react';
+import React from 'react';
 import { CharacterList } from '../Util/CharacterList.ts';
 
 export const ItemsList = (props) => {

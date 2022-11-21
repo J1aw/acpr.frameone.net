@@ -77,6 +77,8 @@ export const QueryDetailsInput = (props) => {
                     </>
                 );
             }
+
+            return null;
         });
     }
     return (
