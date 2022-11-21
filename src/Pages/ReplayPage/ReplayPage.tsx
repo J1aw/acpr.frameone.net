@@ -9,7 +9,7 @@ import { ItemsList } from './ItemsList/ItemsList.tsx';
 export const ReplayPage = (props) => {
     // Pre-request state
     const [queryType, setQueryType] = useState('PLAYER');
-    const [isTwitchReplay, setIsTwitchReplay] = useState(true);
+    const [isTwitchReplay, setIsTwitchReplay] = useState(false);
     const [date, setDate] = useState<string>();
     const [queryParams, setQueryParams] = useState({});
 
