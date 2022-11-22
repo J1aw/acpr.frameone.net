@@ -5,6 +5,8 @@ export const FaqPage = () => {
     return (
         <div>
             Frequently Asked Questions:
+
+            test
         </div>
     )
 }
