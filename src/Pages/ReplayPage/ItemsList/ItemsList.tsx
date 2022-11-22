@@ -90,7 +90,7 @@ export const ItemsList = (props) => {
                                     </Link>
                                 </TableCell>
                                 <TableCell>
-                                    {e.date.split('T')[0]}
+                                    {e.date.split('.')[0]}
                                 </TableCell>
                             </TableRow>
                         );
