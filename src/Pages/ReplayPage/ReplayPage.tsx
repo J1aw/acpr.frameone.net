@@ -1,5 +1,5 @@
 import '../../App.css';
-import { Button, Checkbox, CircularProgress, MenuItem, Select, SelectChangeEvent, TextField } from '@mui/material';
+import { Button, Checkbox, CircularProgress, MenuItem, Select, SelectChangeEvent, TextField, Link } from '@mui/material';
 import React, {useState} from 'react';
 import axios from 'axios';
 import { QueryTypes } from './Util/QueryConfig.ts';
@@ -86,7 +86,7 @@ export const ReplayPage = (props) => {
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                         setIsTwitchReplay(event.target.checked);
                     }} 
-                /> Seen on twitch.tv/ggxxacpr
+                /> Seen on <Link href={'https://twitch.tv/ggxxacpr'}></Link>
             </div>
             <div className='section-label'>
                 Set date for search (Optional):
