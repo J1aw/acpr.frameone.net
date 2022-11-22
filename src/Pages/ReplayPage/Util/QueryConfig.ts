@@ -155,7 +155,7 @@ export const QueryTypes = {
                 label: 'Player 1 Name'
             },
             {
-                details: QueryConfig.p1Character,
+                details: QueryConfig.p2Name,
                 label: 'Player 2 Name'
             }
         ]
