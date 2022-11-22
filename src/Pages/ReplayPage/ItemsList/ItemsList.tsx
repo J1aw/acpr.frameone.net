@@ -31,6 +31,12 @@ export const ItemsList = (props) => {
                 <TableHead>
                     <TableRow key="headerRow">
                         <TableCell>
+                            Date
+                        </TableCell>
+                        <TableCell>
+                            Character
+                        </TableCell>
+                        <TableCell>
                             Player 1
                         </TableCell>
                         <TableCell>
@@ -40,13 +46,10 @@ export const ItemsList = (props) => {
                             Player 2
                         </TableCell>
                         <TableCell>
-                            Character
+                            Winner
                         </TableCell>
                         <TableCell>
                             Replay
-                        </TableCell>
-                        <TableCell>
-                            Date
                         </TableCell>
                     </TableRow>
                 </TableHead>
@@ -61,7 +64,7 @@ export const ItemsList = (props) => {
                         return (
                             <TableRow key={e.gameID}>
                                 <TableCell>
-                                    {e.p1Name}
+                                    {e.date.split('.')[0]}
                                 </TableCell>
                                 <TableCell>
                                     <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -74,7 +77,7 @@ export const ItemsList = (props) => {
                                     </div>
                                 </TableCell>
                                 <TableCell>
-                                    {e.p2Name}
+                                    {e.p1Name}
                                 </TableCell>
                                 <TableCell>
                                     <div style={{display: 'flex', flexDirection: 'column'}}>
@@ -87,13 +90,17 @@ export const ItemsList = (props) => {
                                     </div>
                                 </TableCell>
                                 <TableCell>
+                                    {e.p2Name}
+                                </TableCell>
+                                <TableCell>
+                                    {e.Winner}
+                                </TableCell>
+                                <TableCell>
                                     <Link href={replayUrl}>
                                         <DownloadIcon  sx={{ width: 40, height: 40, paddingRight: '30px', paddingLeft: '30px', color: '#222' }} />
                                     </Link>
                                 </TableCell>
-                                <TableCell>
-                                    {e.date.split('.')[0]}
-                                </TableCell>
+
                             </TableRow>
                         );
                     })}
