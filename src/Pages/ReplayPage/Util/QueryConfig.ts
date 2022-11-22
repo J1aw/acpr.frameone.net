@@ -51,6 +51,14 @@ export const QueryTypes = {
             QueryConfig.p1Character,
         ]
     },
+    MATCHUP: {
+        label: 'Matchup',
+        route: 'Matchup',
+        config: [
+            QueryConfig.p1Character,
+            QueryConfig.p2Character,
+        ]
+    },
     PLAYER_SID_CHARACTER: {
         label: 'PlayerSteamID Character',
         route: 'PlayerSIDCharacter',
