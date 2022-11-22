@@ -28,9 +28,7 @@ function App() {
     }
 
     if (route === Routes.FAQ) {
-      return (
-        <FaqPage />
-      );
+      window.open('https://github.com/Frame-One/acpr.frameone.net/blob/main/README.md', '_blank');
     }
 
     return null;
