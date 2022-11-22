@@ -3,7 +3,24 @@ import DownloadIcon from '@mui/icons-material/Download';
 import React from 'react';
 import { CharacterList } from '../Util/CharacterList.ts';
 
-export const ItemsList = (props) => {
+const areEqual = (prev, next) => {
+    let areEqual = true;
+    
+    if (next.data.Items.length !== prev.data.Items.length) {
+        return false;
+    }
+
+    next.data.Items.every((item, index) => {
+        if (!prev.data.Items[index] || item.gameID !== prev.data.Items[index].gameID) {
+            areEqual = false;
+            return
+        }
+    })
+    
+    return areEqual;
+}
+
+const ItemsListComponent = (props) => {
     const {data} = props;
 
     if (data.Items.length === 0) {
@@ -17,12 +34,17 @@ export const ItemsList = (props) => {
     return (
         <div style={{paddingLeft: '10%', paddingRight: '10%'}}>
             <Table>
+                {
+                    // Adjust column widths here
+                }
                 <colgroup>
                     <col style={{width:'20%'}}/>
-                    <col style={{width:'10%'}}/>
-                    <col style={{width:'20%'}}/>
-                    <col style={{width:'10%'}}/>
-                    <col style={{width:'10%'}}/>
+                    <col style={{width:'8%'}}/>
+                    <col style={{width:'24%'}}/>
+                    <col style={{width:'8%'}}/>
+                    <col style={{width:'24%'}}/>
+                    <col style={{width:'8%'}}/>
+                    <col style={{width:'8%'}}/>
                 </colgroup>
                 {
                     // This is where columns are defined,
@@ -30,25 +52,25 @@ export const ItemsList = (props) => {
                 }
                 <TableHead>
                     <TableRow key="headerRow">
-                        <TableCell>
+                        <TableCell  align='center'>
                             Date
                         </TableCell>
-                        <TableCell>
+                        <TableCell  align='center'>
                             Character
                         </TableCell>
-                        <TableCell>
+                        <TableCell  align='center'>
                             Player 1
                         </TableCell>
-                        <TableCell>
+                        <TableCell  align='center'>
                             Character
                         </TableCell>
-                        <TableCell>
+                        <TableCell  align='center'>
                             Player 2
                         </TableCell>
-                        <TableCell>
+                        <TableCell  align='center'>
                             Winner
                         </TableCell>
-                        <TableCell>
+                        <TableCell  align='center'>
                             Replay
                         </TableCell>
                     </TableRow>
@@ -58,44 +80,45 @@ export const ItemsList = (props) => {
                         const replayUrl = `https://${data.bucket}.s3.amazonaws.com/${e.gameID}.ggr`;
                         const p1Char = CharacterList[e.p1Character - 1];
                         const p2Char = CharacterList[e.p2Character - 1];
-                        const date = new Date(e.date.slice(0, -1));
+                        let date = new Date(e.date.slice(0, -1));
+                        let formattedDate = e.date.split('.')[0].split('T').join(' ');
                         console.log(date);
                         console.log(e);
                         return (
                             <TableRow key={e.gameID}>
-                                <TableCell>
-                                    {e.date.split('.')[0]}
+                                <TableCell  align='center'>
+                                    {formattedDate.substring(0, formattedDate.length - 3)}
                                 </TableCell>
-                                <TableCell>
+                                <TableCell  align='center'>
                                     <div style={{display: 'flex', flexDirection: 'column'}}>
                                         <div style={{width: '60px'}}>
-                                            <Avatar src={p1Char.imgUrl} sx={{ width: 60, height: 60 }} />
+                                            <img style={{paddingLeft: '8px'}} src={p1Char.imgUrl} />
                                         </div>
                                         <div style={{width: '60px', textAlign: 'center'}}>
                                             {p1Char.label}
                                         </div>
                                     </div>
                                 </TableCell>
-                                <TableCell>
+                                <TableCell  align='center'>
                                     {e.p1Name}
                                 </TableCell>
-                                <TableCell>
+                                <TableCell  align='center'>
                                     <div style={{display: 'flex', flexDirection: 'column'}}>
                                         <div style={{width: '60px'}}>
-                                            <Avatar src={p2Char.imgUrl} sx={{ width: 60, height: 60 }} />
+                                            <img style={{paddingLeft: '8px'}} src={p2Char.imgUrl} />
                                         </div>
                                         <div style={{width: '60px', textAlign: 'center'}}>
                                             {p2Char.label}
                                         </div>
                                     </div>
                                 </TableCell>
-                                <TableCell>
+                                <TableCell  align='center'>
                                     {e.p2Name}
                                 </TableCell>
-                                <TableCell>
+                                <TableCell  align='center'>
                                     Player {e.winner}
                                 </TableCell>
-                                <TableCell>
+                                <TableCell  align='center'>
                                     <Link href={replayUrl}>
                                         <DownloadIcon  sx={{ width: 40, height: 40, paddingRight: '30px', paddingLeft: '30px', color: '#222' }} />
                                     </Link>
@@ -109,3 +132,5 @@ export const ItemsList = (props) => {
         </div>
     )
 }
+
+export const ItemsList = React.memo(ItemsListComponent, areEqual);

@@ -3,34 +3,28 @@ import { CharacterList } from './CharacterList.ts';
 export const QueryConfig = {
     p1Name: {
         type: 'text',
-        label: 'Player',
         field: 'p1Name',
     },
     p1SteamID: {
         type: 'text',
-        label: 'Player Steam ID',
         field: 'p1SteamID',
     },
     p2Name: {
         type: 'text',
-        label: 'Player',
         field: 'p2Name',
     },
     p2SteamID: {
         type: 'text',
-        label: 'Player Steam ID',
         field: 'p2SteamID',
     },
     p1Character: {
         type: 'select',
         options: CharacterList,
-        label: 'Character',
         field: 'p1Character',
     },
     p2Character: {
         type: 'select',
         options: CharacterList,
-        label: 'Character',
         field: 'p2Character',
     },
 }
@@ -40,93 +34,174 @@ export const QueryTypes = {
         label: 'Player',
         route: 'Player',
         config: [
-            QueryConfig.p1Name,
+            {
+                details: QueryConfig.p1Name,
+                label: 'Player Name'
+            }
         ]
     },
     PLAYER_CHARACTER: {
         label: 'Player Character',
         route: 'PlayerCharacter',
         config: [
-            QueryConfig.p1Name,
-            QueryConfig.p1Character,
+            {
+                details: QueryConfig.p1Name,
+                label: 'Player Name'
+            },
+            {
+                details: QueryConfig.p1Character,
+                label: 'Player Character'
+            }
         ]
     },
     MATCHUP: {
         label: 'Matchup',
         route: 'Matchup',
         config: [
-            QueryConfig.p1Character,
-            QueryConfig.p2Character,
+            {
+                details: QueryConfig.p1Character,
+                label: 'Player 1 Character'
+            },
+            {
+                details: QueryConfig.p2Character,
+                label: 'Player 2 Character'
+            }
         ]
     },
     PLAYER_SID_CHARACTER: {
         label: 'PlayerSteamID Character',
         route: 'PlayerSIDCharacter',
         config: [
-            QueryConfig.p1SteamID,
-            QueryConfig.p1Character,
+            {
+                details: QueryConfig.p1SteamID,
+                label: 'Player Steam ID'
+            },
+            {
+                details: QueryConfig.p1Character,
+                label: 'Player Character'
+            }
         ]
     },
     PLAYER_CHARACTER_VS_CHARACTER: {
         label: 'Player Character Vs Character',
         route: 'PlayerCharacterVsCharacter',
         config: [
-            QueryConfig.p1Name,
-            QueryConfig.p1Character,
-            QueryConfig.p2Character
+            {
+                details: QueryConfig.p1Name,
+                label: 'Player 1 Name'
+            },
+            {
+                details: QueryConfig.p1Character,
+                label: 'Player 1 Character'
+            },
+            {
+                details: QueryConfig.p2Character,
+                label: 'Player 2 Character'
+            }            
         ]
     },
     PLAYER_SID_CHARACTER_VS_CHARACTER: {
         label: 'PlayerSteamID Character Vs Character',
         route: 'PlayerSIDCharacterVsCharacter',
         config: [
-            QueryConfig.p1SteamID,
-            QueryConfig.p1Character,
-            QueryConfig.p2Character
+            {
+                details: QueryConfig.p1SteamID,
+                label: 'Player 1 Steam ID'
+            },
+            {
+                details: QueryConfig.p1Character,
+                label: 'Player 1 Character'
+            },
+            {
+                details: QueryConfig.p2Character,
+                label: 'Player 2 Character'
+            }   
         ]
     },
     PLAYER_VS_CHARACTER: {
         label: 'Player Vs Character',
         route: 'PlayerVsCharacter',
         config: [
-            QueryConfig.p1Name,
-            QueryConfig.p2Character
+            {
+                details: QueryConfig.p1Name,
+                label: 'Player 1 Name'
+            },
+            {
+                details: QueryConfig.p2Character,
+                label: 'Player 2 Character'
+            }
         ]
     },
     PLAYER_SID_VS_CHARACTER: {
         label: 'PlayerSteamID Vs Character',
         route: 'PlayerSIDVsCharacter',
         config: [
-            QueryConfig.p1SteamID,
-            QueryConfig.p2Character
+            {
+                details: QueryConfig.p1SteamID,
+                label: 'Player 1 Steam ID'
+            },
+            {
+                details: QueryConfig.p2Character,
+                label: 'Player 2 Character'
+            }
         ]
     },
     PLAYER_VS_PLAYER: {
         label: 'Player Vs Player',
         route: 'PlayerVsPlayer',
         config: [
-            QueryConfig.p1Name,
-            QueryConfig.p2Name,
+            {
+                details: QueryConfig.p1Name,
+                label: 'Player 1 Name'
+            },
+            {
+                details: QueryConfig.p1Character,
+                label: 'Player 2 Name'
+            }
         ]
     },
     PLAYER_CHARACTER_VS_PLAYER_CHARACTER: {
         label: 'Player Character Vs Player Character',
         route: 'PlayerCharacterVsPlayerCharacter',
         config: [
-            QueryConfig.p1Name,
-            QueryConfig.p1Character,
-            QueryConfig.p2Name,
-            QueryConfig.p2Character,
+            {
+                details: QueryConfig.p1Name,
+                label: 'Player 1 Name'
+            },
+            {
+                details: QueryConfig.p1Character,
+                label: 'Player 1 Character'
+            },
+            {
+                details: QueryConfig.p2Name,
+                label: 'Player 2 Name'
+            },
+            {
+                details: QueryConfig.p2Character,
+                label: 'Player 2 Character'
+            }  
         ]
     },
     PLAYER_SID_CHARACTER_VS_PLAYER_SID_CHARACTER: {
         label: 'PlayerSteamID Character Vs PlayerSteamID Character',
         route: 'PlayerSIDCharacterVsPlayerSIDCharacter',
         config: [
-            QueryConfig.p1SteamID,
-            QueryConfig.p1Character,
-            QueryConfig.p2SteamID,
-            QueryConfig.p2Character,
+            {
+                details: QueryConfig.p1SteamID,
+                label: 'Player 1 Steam ID'
+            },
+            {
+                details: QueryConfig.p1Character,
+                label: 'Player 1 Character'
+            },
+            {
+                details: QueryConfig.p2SteamID,
+                label: 'Player 2 Steam ID'
+            },
+            {
+                details: QueryConfig.p2Character,
+                label: 'Player 2 Character'
+            }  
         ]
     },
 }

@@ -3,10 +3,12 @@ import './App.css';
 import { AppBar, MenuItem, Typography } from '@mui/material';
 import { ReplayPage } from './Pages/ReplayPage/ReplayPage.tsx';
 import { UploadPage } from './Pages/UploadPage/UploadPage.tsx';
+import { FaqPage } from './Pages/FaqPage/FaqPage.tsx';
 
 const Routes = {
   REPLAY: 'REPLAY',
-  UPLOAD: 'UPLOAD'
+  UPLOAD: 'UPLOAD',
+  FAQ: 'FAQ'
 }
 
 function App() {
@@ -25,6 +27,12 @@ function App() {
       );
     }
 
+    if (route === Routes.FAQ) {
+      return (
+        <FaqPage />
+      );
+    }
+
     return null;
   }
 
@@ -34,18 +42,25 @@ function App() {
         <AppBar className='app-header-container'>
           <div className='app-bar-content'>
             <div className='app-bar-logo'>
-              <Typography>
-                ACPR Replays
-              </Typography>
+              <MenuItem style={{height: '100%'}} key={Routes.REPLAY} onClick={() => {setRoute(Routes.REPLAY)}}>
+                <Typography>
+                  ACPR Replays
+                </Typography>
+              </MenuItem>
             </div>
             <div className='app-bar-button'>
               <MenuItem style={{height: '100%'}} key={Routes.REPLAY} onClick={() => {setRoute(Routes.REPLAY)}}>
-                Replay
+                Replays
               </MenuItem>
             </div>
             <div className='app-bar-button'>
               <MenuItem style={{height: '100%'}} key={Routes.UPLOAD} onClick={() => {setRoute(Routes.UPLOAD)}}>
                 Upload
+              </MenuItem>
+            </div>
+            <div className='app-bar-button'>
+              <MenuItem style={{height: '100%'}} key={Routes.FAQ} onClick={() => {setRoute(Routes.FAQ)}}>
+                FAQ
               </MenuItem>
             </div>
           </div>

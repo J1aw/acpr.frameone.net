@@ -79,7 +79,6 @@ export const UploadPage = (props) => {
 
     const onFileSelect = e => {
         const file = e.target.files[0];
-        console.log(file);
         if (file.name.split('.').pop() !== 'zip') {
             setStatusMessage({
                 isError: true,

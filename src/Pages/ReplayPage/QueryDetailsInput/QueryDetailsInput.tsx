@@ -7,34 +7,33 @@ export const QueryDetailsInput = (props) => {
 
     useEffect(() => {
         const newQueryParams = {...queryParams};
-
         config.forEach(e => {
-            if (e.type === 'select' && newQueryParams) {
-                newQueryParams[e.field] = 'ER';
+            if (e.details.type === 'select' && newQueryParams) {
+                newQueryParams[e.details.field] = 'SO';
             }
         });
 
         setQueryParams(newQueryParams);
-    }, [])
+    }, [config])
 
     const renderInputs = () => {
         return config.map(e => {
-            if (e.type === 'text') {
+            if (e.details.type === 'text') {
                 const textOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
                     const newQueryParams = {...queryParams};
-                    newQueryParams[e.field] = event.target.value
+                    newQueryParams[e.details.field] = event.target.value
                     setQueryParams(newQueryParams);
                 };
 
                 return (
                     <>
                         <div className='section-label'>
-                            {e.field}:
+                            {e.label}:
                         </div>
-                        <div key={e.field} className='container'>
+                        <div key={e.details.field} className='container'>
                             <TextField
-                                key={queryType + e.field}
-                                value={queryParams[e.field] || ''}
+                                key={queryType + e.details.field}
+                                value={queryParams[e.details.field] || ''}
                                 onChange={textOnChange}
                                 className='input-field'
                             />
@@ -43,31 +42,31 @@ export const QueryDetailsInput = (props) => {
                 );
             }
 
-            if (e.type === 'select') {
+            if (e.details.type === 'select') {
                 const getIndexForMatchupQuery = (options, option) => {
                     return options.findIndex(op => op.value === option.value);
                 }
 
-                const selectOptions = e.options.map(option => (
-                    <MenuItem key={option.value} value={queryType === 'Matchup' ?  getIndexForMatchupQuery(e.options, option) : option.value}>{option.label}</MenuItem>
+                const selectOptions = e.details.options.map(option => (
+                    <MenuItem key={option.value} value={queryType === 'Matchup' ?  getIndexForMatchupQuery(e.details.options, option) : option.value}>{option.label}</MenuItem>
                 ));
     
                 const selectOnChange = (event: SelectChangeEvent) => {
                     const newQueryParams = {...queryParams};
-                    newQueryParams[e.field] = event.target.value
+                    newQueryParams[e.details.field] = event.target.value
                     setQueryParams(newQueryParams);
                 };
 
                 return (
                     <>
                         <div className='section-label'>
-                            {e.field}:
+                            {e.label}:
                         </div>
-                        <div key={e.field} className='container'>
+                        <div key={e.details.field} className='container'>
                             <Select
-                                key={e.field}
+                                key={e.details.field}
                                 label={e.label}
-                                value={queryParams[e.field] || e.options[0].value}
+                                value={queryParams[e.details.field] || e.details.options[0].value}
                                 onChange={selectOnChange}
                                 className='input-field'
                             >
