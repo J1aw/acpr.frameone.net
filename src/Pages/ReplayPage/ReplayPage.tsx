@@ -86,7 +86,7 @@ export const ReplayPage = (props) => {
                     onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
                         setIsTwitchReplay(event.target.checked);
                     }} 
-                /> Seen on <Link href={'https://twitch.tv/ggxxacpr'}></Link>
+                /> Seen on <Link href={'https://twitch.tv/ggxxacpr'}>twitch.tv/ggxxacpr</Link>
             </div>
             <div className='section-label'>
                 Set date for search (Optional):
