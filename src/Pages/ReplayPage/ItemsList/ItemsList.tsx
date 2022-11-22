@@ -82,8 +82,6 @@ const ItemsListComponent = (props) => {
                         const p2Char = CharacterList[e.p2Character - 1];
                         let date = new Date(e.date.slice(0, -1));
                         let formattedDate = e.date.split('.')[0].split('T').join(' ');
-                        console.log(date);
-                        console.log(e);
                         return (
                             <TableRow key={e.gameID}>
                                 <TableCell  align='center'>
