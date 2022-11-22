@@ -53,8 +53,8 @@ export const ItemsList = (props) => {
                 <TableBody>
                     {data.Items.map(e => {
                         const replayUrl = `https://${data.bucket}.s3.amazonaws.com/${e.gameID}.ggr`;
-                        const p1Char = CharacterList[e.p1Character];
-                        const p2Char = CharacterList[e.p2Character];
+                        const p1Char = CharacterList[e.p1Character - 1];
+                        const p2Char = CharacterList[e.p2Character - 1];
                         console.log(e);
                         return (
                             <TableRow key={e.gameID}>
