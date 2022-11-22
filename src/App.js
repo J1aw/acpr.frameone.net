@@ -3,7 +3,6 @@ import './App.css';
 import { AppBar, MenuItem, Typography } from '@mui/material';
 import { ReplayPage } from './Pages/ReplayPage/ReplayPage.tsx';
 import { UploadPage } from './Pages/UploadPage/UploadPage.tsx';
-import { FaqPage } from './Pages/FaqPage/FaqPage.tsx';
 
 const Routes = {
   REPLAY: 'REPLAY',
@@ -58,7 +57,7 @@ function App() {
             </div>
             <div className='app-bar-button'>
               <MenuItem style={{height: '100%'}} key={Routes.FAQ} onClick={() => {setRoute(Routes.FAQ)}}>
-                FAQ
+                FAQs
               </MenuItem>
             </div>
           </div>
