@@ -1,4 +1,4 @@
-import { Avatar, Link, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Link, Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download';
 import React from 'react';
 import { CharacterList } from '../Util/CharacterList.ts';
@@ -91,10 +91,10 @@ const ItemsListComponent = (props) => {
                                 </TableCell>
                                 <TableCell  align='center'>
                                     <div style={{display: 'flex', flexDirection: 'column'}}>
-                                        <div style={{width: '60px'}}>
-                                            <img style={{paddingLeft: '8px'}} src={p1Char.imgUrl} />
+                                        <div>
+                                            <img src={p1Char.imgUrl} />
                                         </div>
-                                        <div style={{width: '60px', textAlign: 'center'}}>
+                                        <div style={{textAlign: 'center'}}>
                                             {p1Char.label}
                                         </div>
                                     </div>
@@ -103,11 +103,11 @@ const ItemsListComponent = (props) => {
                                     {e.p1Name}
                                 </TableCell>
                                 <TableCell  align='center'>
-                                    <div style={{display: 'flex', flexDirection: 'column'}}>
-                                        <div style={{width: '60px'}}>
-                                            <img style={{paddingLeft: '8px'}} src={p2Char.imgUrl} />
+                                    <div style={{display: 'flex', flexDirection: 'column', justifyContent: 'center'}}>
+                                        <div>
+                                            <img src={p2Char.imgUrl} />
                                         </div>
-                                        <div style={{width: '60px', textAlign: 'center'}}>
+                                        <div style={{textAlign: 'center'}}>
                                             {p2Char.label}
                                         </div>
                                     </div>
