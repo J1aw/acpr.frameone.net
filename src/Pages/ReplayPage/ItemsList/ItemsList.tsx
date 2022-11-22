@@ -93,7 +93,7 @@ export const ItemsList = (props) => {
                                     {e.p2Name}
                                 </TableCell>
                                 <TableCell>
-                                    {e.Winner}
+                                    Player {e.winner}
                                 </TableCell>
                                 <TableCell>
                                     <Link href={replayUrl}>
