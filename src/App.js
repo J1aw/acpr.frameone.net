@@ -56,7 +56,7 @@ function App() {
               </MenuItem>
             </div>
             <div className='app-bar-button'>
-              <MenuItem style={{height: '100%'}} key={Routes.FAQ}>
+              <MenuItem style={{height: '100%'}} key={Routes.FAQ} onClick={() => window.open('https://github.com/Frame-One/acpr.frameone.net/blob/main/README.md', '_blank')}>
                 FAQs
               </MenuItem>
             </div>
