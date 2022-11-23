@@ -8,6 +8,8 @@ Anyone is free to upload their own replays. To do this, use the Upload tab and s
 #### Why can't I find [this] replay?
 The match is either viewed as invalid by the process that extracts the metadata from the file and discarded, or the search did not match.
 
+In addtion, some names that use characters that are not able to be properly encoded/decoded in UTF-8 are replaced with "�". You can still search via steamID or by inserting that character where a non UTF-8 character is present. If you believe there is a mistake in the name encoding let me know [on Twitter](https://twitter.com/prspekt).
+
 #### Why does it only return a fixed amount of matches?
 To keep things fast and orderly, queries return 100-200 matches depending on query type. If you feel you're having a hard time finding a particular match because of this, let me know [on Twitter](https://twitter.com/prspekt).
 
