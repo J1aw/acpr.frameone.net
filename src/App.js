@@ -56,7 +56,7 @@ function App() {
               </MenuItem>
             </div>
             <div className='app-bar-button'>
-              <MenuItem style={{height: '100%'}} key={Routes.FAQ} onClick={() => {setRoute(Routes.FAQ)}}>
+              <MenuItem style={{height: '100%'}} key={Routes.FAQ}>
                 FAQs
               </MenuItem>
             </div>
