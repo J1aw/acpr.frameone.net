@@ -10,6 +10,11 @@
   padding-bottom: 60px;
 }
 
+.dark-mode {
+  background-color:  #3C3A44;
+  color: #EAEAEA;
+}
+
 .app-header-container {
   height: 56px;
 }
