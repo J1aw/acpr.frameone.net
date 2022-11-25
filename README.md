@@ -64,3 +64,64 @@ returns all matches by a particular player playing against a particular player u
 
 #### PlayerSteamID Character vs PlayerSteamID Character
 returns all matches by a particular player playing against a particular player using particular characters using their [steamID64 in decimal format](https://www.steamidfinder.com/) at the time of the match. This is useful for players that change their name frequently.
+
+# Working with api.frameone.net directly
+There are two endpoints available to interact with this service.
+
+### api.frameone.net/upload-zip
+A GET request generates an [S3 Presigned POST](https://docs.aws.amazon.com/AWSJavaScriptSDK/v3/latest/modules/_aws_sdk_s3_presigned_post.html) that can be used to upload .zip files for bulk replay processing. 
+
+## api.frameone.net/query-acpr
+A GET request to this endpoint will return an object containing items returned from the requested query type and parameters. All parameters are passed as strings.
+
+### Parameters
+
+Table: the database table to read from, accepted values are "replays" and "spectator-replays". User submitted replays are on the "replays" table and matches played on [twitch.tv/ggxxacpr](https://twitch.tv/ggxxacpr) are on the "spectator-replays" table.
+
+Date: if specified will return items from the declared date and previous. ISO8601 format.
+
+gameID: a hash used to prevent duplicate match uploads
+
+p1Name: the steam name of player 1
+
+p1SteamID: the [steamID64 in decimal format](https://www.steamidfinder.com/) of player 1
+
+p1Character: the character abbrviation of player 1 (SO,KY,SL,PO)
+
+p2Name: the steam name of player 2
+
+p2SteamID: the [steamID64 in decimal format](https://www.steamidfinder.com/) of player 2
+
+p2Character: the character abbriviation of player 2 (SO,KY,SL,PO)
+
+routeKey: Query type
+
+
+
+### routeKeys and their accepted parameters
+
+Game: Table, gameID
+
+Matchup: p1Character, p2Character
+
+Player: p1Name
+
+PlayerCharacter: p1Name, p1Character
+
+PlayerSIDCharacter: p1SteamID, p1Character
+
+PlayerCharacterVsCharacter: p1Name, p1Character, p2Character
+
+PlayerSIDCharacterVsCharacter: p1SteamID, p1Character, p2Character
+
+PlayerVsCharacter: p1Name, p2Character
+
+PlayerSteamIDVsCharacter: p1SteamID, p2Character
+
+PlayerVsPlayer: p1Name, p2Name
+
+PlayerCharacterVsPlayerCharacter: p1Name, p1Character, p2Name, p2Character
+
+PlayerSIDCharacterVsPlayerSIDCharacter: p1SteamID, p1Character, p2SteamID, p2Character
+
+As an example, a GET to https://api.frameone.net/query-acpr?routeKey=Matchup&Table=replays&p1Character=SO&p2Character=KY&Date=2022-05-10 will return matches played between Sol and Ky from May 5th 2022 and back from the user submitted table.
