@@ -78,7 +78,7 @@ A GET request to this endpoint will return an object containing items returned f
 
 Table: the database table to read from, accepted values are "replays" and "spectator-replays". User submitted replays are on the "replays" table and matches played on [twitch.tv/ggxxacpr](https://twitch.tv/ggxxacpr) are on the "spectator-replays" table.
 
-Date: if specified will return items from the declared date and previous. ISO8601 format.
+Date: if specified will return items from the declared date and previous. ISO8601 format, UTC.
 
 gameID: a hash used to prevent duplicate match uploads
 
