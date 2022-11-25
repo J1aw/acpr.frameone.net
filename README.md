@@ -124,4 +124,5 @@ PlayerCharacterVsPlayerCharacter: p1Name, p1Character, p2Name, p2Character
 
 PlayerSIDCharacterVsPlayerSIDCharacter: p1SteamID, p1Character, p2SteamID, p2Character
 
-As an example, a GET to https://api.frameone.net/query-acpr?routeKey=Matchup&Table=replays&p1Character=SO&p2Character=KY&Date=2022-05-10 will return matches played between Sol and Ky from May 5th 2022 and back from the user submitted table. While it appears that this would only returns matches where Sol was player 1 and Ky was player 2, this, and every query using some form of p1/p2 also returns their inverse.
+### Example
+A GET to https://api.frameone.net/query-acpr?routeKey=Matchup&Table=replays&p1Character=SO&p2Character=KY&Date=2022-05-10 will return matches played between Sol and Ky from May 5th 2022 and back from the user submitted table. While it appears that this would only returns matches where Sol was player 1 and Ky was player 2, this, and every query using some form of p1/p2 also returns their inverse.
