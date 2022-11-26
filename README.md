@@ -8,7 +8,7 @@ Anyone is free to upload their own replays. To do this, use the Upload tab and s
 #### Why can't I find [this] replay?
 The match is either viewed as invalid by the process that extracts the metadata from the file and discarded, or the search did not match. Replays from before December 2021 will need to be rewatched in full to generate valid metadata.
 
-Matches that are incomplete, team matches, or spectated will not be processed.
+Matches that are incomplete, team matches, or spectated matches will not be processed.
 
 In addtion, some names that use characters that are not able to be properly encoded/decoded in UTF-8 are replaced with "�". You can still search via steamID or by inserting that character where a non UTF-8 character is present. If you believe there is a mistake in the name encoding let me know [on Twitter](https://twitter.com/prspekt).
 
